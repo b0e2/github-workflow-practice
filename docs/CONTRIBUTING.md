@@ -12,10 +12,10 @@
 
 ### main 브랜치
 
-* `main` 브랜치는 항상 정상적으로 동작하는 상태를 유지합니다.
-* `main` 브랜치에는 직접 push하지 않습니다.
-* 모든 변경 사항은 Pull Request를 통해 병합합니다.
-* Pull Request는 최소 1명의 승인을 받은 후 병합합니다.
+- `main` 브랜치는 항상 정상적으로 동작하는 상태를 유지합니다.
+- `main` 브랜치에는 직접 push하지 않습니다.
+- 모든 변경 사항은 Pull Request를 통해 병합합니다.
+- Pull Request는 최소 1명의 승인을 받은 후 병합합니다.
 
 ### feature 브랜치
 
@@ -54,17 +54,17 @@ feature/taedong-troubleshooting-log
 
 ### 작성 기준
 
-* 모두 소문자를 사용합니다.
-* 단어 구분은 `-`를 사용합니다.
-* 브랜치 이름만 보고 작업 내용을 어느 정도 유추할 수 있도록 작성합니다.
-* 한 브랜치에서는 하나의 작업 단위만 처리하는 것을 권장합니다.
+- 모두 소문자를 사용합니다.
+- 단어 구분은 `-`를 사용합니다.
+- 브랜치 이름만 보고 작업 내용을 어느 정도 유추할 수 있도록 작성합니다.
+- 한 브랜치에서는 하나의 작업 단위만 처리하는 것을 권장합니다.
 
 ### 좋은 예시
 
 ```text
 feature/taedong-string-utils
-feature/minsu-add-contributing-guide
-feature/jiyoung-input-validation
+feature/jeongbeen-add-contributing-guide
+feature/minwoo-input-validation
 ```
 
 ### 피해야 할 예시
@@ -84,9 +84,9 @@ feature/update
 
 Issue에는 최소한 다음 내용을 작성합니다.
 
-* 작업 내용
-* 완료 조건
-* 참고 사항
+- 작업 내용
+- 완료 조건
+- 참고 사항
 
 예시:
 
