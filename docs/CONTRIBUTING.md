@@ -47,9 +47,9 @@ feature/<name>-<topic>
 예시:
 
 ```text
-feature/taedong-string-utils
-feature/minsu-number-utils
-feature/jiyoung-readme
+feature/jeongbeen-collaboration-guide
+feature/minwoo-conflict-resolution
+feature/taedong-troubleshooting-log
 ```
 
 ### 작성 기준
