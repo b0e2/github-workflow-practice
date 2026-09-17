@@ -205,6 +205,22 @@ fix
 
 feature 브랜치에 `push`했다고 해서 `main`이 변경되는 것은 아니다. PR을 생성하고 리뷰와 승인을 받은 뒤 `merge`해야 feature 브랜치의 변경이 `main`에 포함된다.
 
+### GitHub PR 병합 방식
+
+GitHub는 PR을 `main`에 병합할 때 세 가지 방식을 제공하며, 방식에 따라 
+feature 브랜치의 커밋 이력이 main에 남는 형태가 달라진다.
+
+| 방식 | main에 남는 형태 |
+|---|---|
+| Merge commit | feature 브랜치의 커밋이 모두 유지되고, 병합 지점에 별도의 merge 커밋이 추가된다. |
+| Squash and merge | feature 브랜치의 모든 커밋이 하나의 커밋으로 합쳐져 main에 기록된다. |
+| Rebase and merge | 각 커밋은 유지되지만 main 위에 재배치되어 병합 커밋 없이 이어 붙는다. |
+
+저장소 설정(Branch Protection 또는 Settings)에서 특정 방식만 허용하도록 
+제한할 수 있다. 예를 들어 Squash and merge만 허용된 저장소에서는 
+7장에서 강조한 "목적별로 나눈 커밋"이 main에는 하나로 합쳐져 보인다는 점을 
+미리 알고 있어야 혼란이 없다.
+
 ## 9. Pull Request
 
 Pull Request는 작업 브랜치의 변경 사항을 `main`에 병합하기 전에 팀원에게 설명하고 검토를 요청하는 공간이다.
