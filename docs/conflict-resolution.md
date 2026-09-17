@@ -11,7 +11,7 @@
 - 충돌 해결자: 엄태동 박세헌
 - 관련 팀원: 육민우
 - 관련 PR: [PR #9](https://github.com/gitflow-practice-team/github-workflow-practice/pull/9)
-- 해결 커밋: 
+- 해결 커밋: https://github.com/gitflow-practice-team/github-workflow-practice/pull/9/changes/094b59436b94f01791f6541aa90a1521f3361bf1
 
 ### 2. 충돌 상황
 
