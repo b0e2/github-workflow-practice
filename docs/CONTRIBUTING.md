@@ -376,3 +376,66 @@ fix: handle whitespace-only input
 * 리뷰어와 작성자 사이에 최소 1회 이상의 상호작용을 기록으로 남깁니다.
 
 ---
+
+## 13. 금지 사항
+
+다음 작업은 팀 합의 없이 수행하지 않습니다.
+
+* `main` 브랜치 직접 push
+* 공유 브랜치에서 강제 push
+* 공유된 커밋에 대한 임의의 history rewrite
+* 다른 팀원의 브랜치 삭제
+* 리뷰 없이 PR 병합
+* 충돌 내용을 확인하지 않고 한쪽 변경 사항 삭제
+* Issue 없이 추적하기 어려운 작업 진행
+* 의미 없는 커밋 메시지 사용
+
+특히 다음 명령은 공유 브랜치에서 신중하게 사용합니다.
+
+```bash
+git push --force
+git reset --hard
+git rebase
+```
+
+필요한 경우 반드시 팀원과 먼저 협의합니다.
+
+---
+
+## 14. 기본 협업 흐름
+
+모든 기능 작업은 아래 흐름을 따르는 것을 원칙으로 합니다.
+
+```text
+Issue 생성
+    ↓
+feature 브랜치 생성
+    ↓
+작업
+    ↓
+Commit
+    ↓
+Push
+    ↓
+Pull Request 생성
+    ↓
+Code Review
+    ↓
+리뷰 반영
+    ↓
+Approve
+    ↓
+Merge
+    ↓
+Issue Close
+```
+
+---
+
+## 15. 관련 문서
+
+* 충돌 해결 기록: `docs/conflict-resolution.md`
+* Git 문제 해결 기록: `docs/troubleshooting-log.md`
+* 제출물 인덱스: `SUBMISSION.md`
+
+---
