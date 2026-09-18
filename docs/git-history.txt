@@ -1,45 +1,48 @@
 # git log --oneline --graph --all
 
-*   9e1d89b docs: CONTRIBUTING 충돌 해결 및 main 반영
+* 70e7f69 docs: CONTRIBUTING 충돌 해결 과정 기록 추가
+* 9a1abce docs: PR 20 충돌 해결 과정과 히스토리 기록
+* 228ae8f docs: 충돌 및 트러블슈팅 완료 상태 반영
+* e41fc78 docs: 트러블슈팅 실습 후 Git 히스토리 갱신
+* 7ae0ec1 docs: Git 트러블슈팅 4종 실제 실습 결과 기록
+* ba08d62 docs: 충돌 해결 커밋 링크와 히스토리 증빙 갱신
+*   2484c89 docs: README 충돌 해결 및 과정 기록
 |\
-* | afe9eb2 docs: distinguish rebase rules for shared vs personal branches
-* | be43e30 docs: add prohibitions and collaboration flow to CONTRIBUTING
-| | * 228ae8f docs: 충돌 및 트러블슈팅 완료 상태 반영
-| | * e41fc78 docs: 트러블슈팅 실습 후 Git 히스토리 갱신
-| | * 7ae0ec1 docs: Git 트러블슈팅 4종 실제 실습 결과 기록
-| | * ba08d62 docs: 충돌 해결 커밋 링크와 히스토리 증빙 갱신
-| | *   2484c89 docs: README 충돌 해결 및 과정 기록
+* | a93397f docs: 제출물 인덱스에 통합 PR 링크 추가
+* | 7dd7edc docs: 제출물 인덱스와 Git 히스토리 증빙 추가
+* | 62a1836 chore: 문서별 CODEOWNERS 설정
+* | 3cf1977 docs: Git 트러블슈팅 기록 구조와 stash 실습 추가
+* | 9a4d85b docs: README 프로젝트 소개 문구 추가
+* | d482078 docs: interactive rebase 전후 히스토리 기록
+* | b677adf docs: interactive rebase 실습 내용 정리
+| | *   9e1d89b docs: CONTRIBUTING 충돌 해결 및 main 반영
 | | |\
 | | |/
 | |/|
-| * |   277b14d Merge pull request #21 from gitflow-practice-team/feature/juseong-learning-notes
-| |\ \
-| | * | 33de0fc docs: correct cohort and clarify proxy vs CORS
-| | * | 18a14ed docs: add concept-focused learning notes for juseong
+| * | 277b14d Merge pull request #21 from gitflow-practice-team/feature/juseong-learning-notes
+|/| |
+| * | 33de0fc docs: correct cohort and clarify proxy vs CORS
+| * | 18a14ed docs: add concept-focused learning notes for juseong
+* | |   6d48364 Merge pull request #22 from gitflow-practice-team/feature/park-git-collab-rules
+|\ \ \
+| * | | 99a999e docs: 링크 일관성 추가
+| * | | 9db25a3 docs: 자기소개와 코드 리뷰 및 Git/GitHub 협업 규칙 문서화
+* | | |   1d8e5b0 Merge pull request #19 from gitflow-practice-team/feature/park-conflict-guide
+|\ \ \ \
+| |/ / /
+|/| | |
+| * | | c38fe96 docs: 충돌 대응 피드백 반영 내용 추가
+| * | | 834d7e0 docs: Git 충돌 해결 및 트러블슈팅 가이드 작성
+|/ / /
+* | |   6a2f164 Merge pull request #14 from gitflow-practice-team/feature/taedong-code-review-guide
+|\ \ \
 | |/ /
 |/| |
-| | * a93397f docs: 제출물 인덱스에 통합 PR 링크 추가
-| | * 7dd7edc docs: 제출물 인덱스와 Git 히스토리 증빙 추가
-| | * 62a1836 chore: 문서별 CODEOWNERS 설정
-| | * 3cf1977 docs: Git 트러블슈팅 기록 구조와 stash 실습 추가
-| | * 9a4d85b docs: README 프로젝트 소개 문구 추가
-| | * d482078 docs: interactive rebase 전후 히스토리 기록
-| | * b677adf docs: interactive rebase 실습 내용 정리
+| * | d3650c3 docs: 충돌 기록 내용 수정
+| | * afe9eb2 docs: distinguish rebase rules for shared vs personal branches
+| | * be43e30 docs: add prohibitions and collaboration flow to CONTRIBUTING
 | |/
-| *   6d48364 Merge pull request #22 from gitflow-practice-team/feature/park-git-collab-rules
-| |\
-| | * 99a999e docs: 링크 일관성 추가
-| | * 9db25a3 docs: 자기소개와 코드 리뷰 및 Git/GitHub 협업 규칙 문서화
-| * |   1d8e5b0 Merge pull request #19 from gitflow-practice-team/feature/park-conflict-guide
-| |\ \
-| | |/
-| |/|
-| | * c38fe96 docs: 충돌 대응 피드백 반영 내용 추가
-| | * 834d7e0 docs: Git 충돌 해결 및 트러블슈팅 가이드 작성
-| |/
-| * 6a2f164 Merge pull request #14 from gitflow-practice-team/feature/taedong-code-review-guide
 |/|
-| * d3650c3 docs: 충돌 기록 내용 수정
 * | 7fe6cb0 Merge pull request #9 from gitflow-practice-team/feature/taedong-code-review-guide
 |\|
 | * e794dc9 docs: 해결 커밋 링크 추가
