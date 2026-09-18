@@ -1,19 +1,25 @@
 # git log --oneline --graph --all
 
+* 7ae0ec1 docs: Git 트러블슈팅 4종 실제 실습 결과 기록
+* ba08d62 docs: 충돌 해결 커밋 링크와 히스토리 증빙 갱신
 *   2484c89 docs: README 충돌 해결 및 과정 기록
 |\
-| *   277b14d Merge pull request #21 from gitflow-practice-team/feature/juseong-learning-notes
-| |\
-| | * 33de0fc docs: correct cohort and clarify proxy vs CORS
-| | * 18a14ed docs: add concept-focused learning notes for juseong
-* | | a93397f docs: 제출물 인덱스에 통합 PR 링크 추가
-* | | 7dd7edc docs: 제출물 인덱스와 Git 히스토리 증빙 추가
-* | | 62a1836 chore: 문서별 CODEOWNERS 설정
-* | | 3cf1977 docs: Git 트러블슈팅 기록 구조와 stash 실습 추가
-* | | 9a4d85b docs: README 프로젝트 소개 문구 추가
-* | | d482078 docs: interactive rebase 전후 히스토리 기록
-* | | b677adf docs: interactive rebase 실습 내용 정리
-|/ /
+* | a93397f docs: 제출물 인덱스에 통합 PR 링크 추가
+* | 7dd7edc docs: 제출물 인덱스와 Git 히스토리 증빙 추가
+* | 62a1836 chore: 문서별 CODEOWNERS 설정
+* | 3cf1977 docs: Git 트러블슈팅 기록 구조와 stash 실습 추가
+* | 9a4d85b docs: README 프로젝트 소개 문구 추가
+* | d482078 docs: interactive rebase 전후 히스토리 기록
+* | b677adf docs: interactive rebase 실습 내용 정리
+| | * 84490f1 Revert "practice: revert 대상 변경 추가"
+| | * 34f8045 practice: revert 대상 변경 추가
+| | * 7d519f7 practice: reset 후 변경 재커밋
+| | * 1a4feda practice: amend로 최근 커밋 수정
+| |/
+| * 277b14d Merge pull request #21 from gitflow-practice-team/feature/juseong-learning-notes
+|/|
+| * 33de0fc docs: correct cohort and clarify proxy vs CORS
+| * 18a14ed docs: add concept-focused learning notes for juseong
 * |   6d48364 Merge pull request #22 from gitflow-practice-team/feature/park-git-collab-rules
 |\ \
 | * | 99a999e docs: 링크 일관성 추가
