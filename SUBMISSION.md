@@ -15,7 +15,7 @@
 - Issue: [#23 제출 문서 및 Git 협업 실습 증빙 정리](https://github.com/gitflow-practice-team/github-workflow-practice/issues/23)
 - PR: [#4 팀 브랜치 및 Issue 협업 규칙 반영](https://github.com/gitflow-practice-team/github-workflow-practice/pull/4)
 - PR: [#5 정빈 자기소개와 Git 학습 내용 추가](https://github.com/gitflow-practice-team/github-workflow-practice/pull/5)
-- 현재 작업 PR: 생성 후 링크 추가
+- PR: [#24 제출 문서와 Git 협업 실습 증빙 정리](https://github.com/gitflow-practice-team/github-workflow-practice/pull/24)
 
 ### 육민우 (`@FickleBoBo`)
 
