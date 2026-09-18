@@ -88,8 +88,6 @@ Git이 두 변경 사항의 배치 순서를 자동으로 결정하지 못해 �
 - Current Change: `feature/taedong-code-review-guide`에서 추가한 7~9번 내용
 - Incoming Change: 최신 `main`에서 추가된 4~6번 내용
 
-![CONTRIBUTING 충돌 발생 화면](images/conflict-1/conflict-before.png)
-
 ### 5. 비자명 충돌로 판단한 이유
 
 이번 충돌은 같은 파일의 같은 hunk를 양쪽 브랜치에서 수정하여 발생했다.

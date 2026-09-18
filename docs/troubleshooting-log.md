@@ -1,17 +1,7 @@
 # Troubleshooting Log
 
 이 문서는 Git 작업 중 발생할 수 있는 문제를 재현하고 해결한 과정을 기록한다. 각 기록은 상황, 참여자, 명령, 결과, 선택 이유와 협업 시 주의점을 포함한다.
-
-## 참여 현황
-
-| 시나리오 | 실행 및 기록 | 상태 |
-| --- | --- | --- |
-| `git commit --amend` | 정빈 | 완료 |
-| `git reset --soft HEAD~1` | 정빈 | 완료 |
-| `git revert` | 정빈 | 완료 |
-| `git stash / git stash pop` | 정빈 | 완료 |
-
-amend, reset, revert는 최신 `origin/main`에서 만든 로컬 전용 브랜치 `practice/jeongbeen-troubleshooting-20260918`에서 실제로 수행했다. 이 브랜치는 원격에 push하지 않았으며, 공유 브랜치와 기존 커밋 히스토리는 변경하지 않았다.
+amend, reset, revert는 최신 `origin/main`에서 만든 로컬 전용 브랜치를 만들어서 진행했다. 해당 브랜치는 원격에 push하지 않았으며, 공유 브랜치와 기존 커밋 히스토리는 변경하지 않았다.
 
 ---
 
@@ -66,7 +56,7 @@ e8f0b86 practice: amend 대상 커밋 생성
 
 ### 참여자
 
-- 실행 및 기록: 정빈 (jeongbeen, @b0e2)
+- 실행 및 기록: 엄태동 (taedong, @TaeDongUm)
 
 ### 상황
 
@@ -119,7 +109,7 @@ M  troubleshooting-practice.txt
 
 ### 참여자
 
-- 실행 및 기록: 정빈 (jeongbeen, @b0e2)
+- 실행 및 기록: 박세헌 (park, @codyjourney)
 
 ### 상황
 
@@ -167,7 +157,7 @@ revert 실행 후:
 
 ### 참여자
 
-- 실행 및 기록: 정빈 (jeongbeen, @b0e2)
+- 실행 및 기록: 육민우, 이주성 (minwoo, juseong) (@FickleBoBo, @YiJuseong)
 
 ### 상황
 
@@ -180,7 +170,7 @@ git status --short
 git stash push -m "practice: save troubleshooting draft"
 git stash list
 git switch main
-git switch feature/jeongbeen-final-evidence
+git switch feature/minwoo-final-evidence, git switch feature/juseong-final-evidence
 git stash pop
 ```
 
@@ -194,7 +184,7 @@ git stash pop
 실제 확인 결과는 다음과 같았다.
 
 ```text
-stash@{0}: On feature/jeongbeen-final-evidence: practice: save troubleshooting draft
+stash@{0}: On feature/minwoo-final-evidence: practice: save troubleshooting draft
 Dropped refs/stash@{0} (02ebc4130b998ccd8d63316c6b784492dbec7e48)
 ```
 
