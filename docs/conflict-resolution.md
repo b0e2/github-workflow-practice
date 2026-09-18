@@ -183,3 +183,116 @@ git grep -n -e '<<<<<<<' -e '=======' -e '>>>>>>>'
 - 문단 번호와 병합 순서
 - 앞선 문서 PR이 병합된 후 최신 `main`을 반영할지 여부
 - 충돌 발생 시 내용을 보존하고 재배치하는 기준
+
+---
+
+## 충돌 기록 #2: README 프로젝트 소개와 학습 노트 목차 병합
+
+### 1. 기본 정보
+
+- 발생 날짜: 2026-09-18
+- 충돌 파일: `README.md`
+- 작업 브랜치: `feature/jeongbeen-final-evidence`
+- PR 대상 브랜치: `main`
+- 충돌 해결자: 정빈 (`@b0e2`)
+- 관련 작업자: 이주성 (`@YiJuseong`, PR #21 작성자)
+- 관련 PR: [PR #21](https://github.com/gitflow-practice-team/github-workflow-practice/pull/21), [PR #24](https://github.com/gitflow-practice-team/github-workflow-practice/pull/24)
+
+### 2. 충돌 전 커밋
+
+- 공통 기준 커밋: `6d4836469827ff63236262775efe30b2c0899382`
+- feature 브랜치 커밋: `a93397fcf0d27ebec411466dafe319dfb647a699`
+- 병합한 최신 main: `277b14d3f5318d372a188393e2d69b9c20bd0c52`
+- 최신 main의 변경: PR #21 병합 커밋
+
+브랜치 이름은 이후 다른 커밋을 가리킬 수 있으므로, 충돌 당시 상태를 재현할 수 있도록 양쪽 커밋 해시를 함께 기록했다.
+
+### 3. 상황
+
+`feature/jeongbeen-final-evidence` 브랜치는 기존 한 줄짜리 README 제목 바로 아래에 프로젝트 소개 문장을 추가했다.
+
+```text
+이 저장소는 Issue와 Pull Request를 활용한 Git 협업 실습 과정을 기록합니다.
+```
+
+동시에 PR #21은 같은 제목 바로 아래에 다른 프로젝트 소개 문장과 팀원별 학습 노트 목차, 관련 문서 링크를 추가했다. PR #21이 `main`에 먼저 병합된 후 feature 브랜치에서 최신 `origin/main`을 병합하자, 같은 파일의 같은 삽입 위치를 서로 다르게 수정한 두 변경을 Git이 자동으로 배치하지 못해 충돌이 발생했다.
+
+### 4. 재현 명령
+
+```bash
+git fetch origin
+git switch feature/jeongbeen-final-evidence
+git merge origin/main
+```
+
+실행 결과는 다음과 같았다.
+
+```text
+자동 병합: README.md
+충돌 (내용): README.md에 병합 충돌
+자동 병합이 실패했습니다. 충돌을 바로잡고 결과물을 커밋하십시오.
+```
+
+`git status --short`에서는 `README.md`가 `UU` 상태로 표시됐다.
+
+### 5. 실제 충돌 마커
+
+```text
+ <<<<<<< HEAD
+이 저장소는 Issue와 Pull Request를 활용한 Git 협업 실습 과정을 기록합니다.
+ =======
+GitHub Flow 기반 협업 워크플로우를 연습하는 팀 저장소입니다.
+
+## 학습 노트
+...
+ >>>>>>> origin/main
+```
+
+- `HEAD`: 정빈의 feature 브랜치에서 추가한 프로젝트 소개 문장
+- `=======`: 두 변경 영역의 구분선
+- `origin/main`: PR #21로 추가된 프로젝트 소개, 학습 노트 목차와 관련 문서 링크
+
+### 6. 비자명 충돌로 판단한 이유
+
+양쪽 브랜치는 같은 파일의 같은 hunk인 README 제목 직후를 서로 다르게 수정했다. 한쪽만 선택하면 다음 정보가 사라진다.
+
+- feature 변경만 유지하면 팀원별 학습 노트 목차와 관련 문서 링크가 사라진다.
+- main 변경만 유지하면 Issue와 Pull Request 중심의 프로젝트 설명이 사라진다.
+- 두 변경을 단순 연결하면 소개 문장의 순서, 누락된 팀원 링크와 관련 문서 구성을 다시 검토해야 한다.
+
+따라서 변경 목적을 이해하고 최종 문서 구조를 결정해야 하는 비자명 충돌에 해당한다.
+
+### 7. 해결 전략
+
+양쪽의 의미 있는 내용을 모두 유지하는 `keep both` 전략을 선택했다.
+
+1. GitHub Flow 기반 저장소라는 소개를 먼저 배치했다.
+2. Issue와 Pull Request를 활용한 실습 기록이라는 설명을 이어서 배치했다.
+3. PR #21의 학습 노트 목차와 관련 문서 링크를 유지했다.
+4. 팀원 5명이 모두 보이도록 박세헌의 학습 문서 링크를 추가했다.
+5. 이번 작업에서 추가한 rebase 실습과 제출물 인덱스 링크를 관련 문서에 포함했다.
+6. 모든 충돌 마커를 제거했다.
+
+### 8. 해결 및 검증 명령
+
+```bash
+git grep -n -e '<<<<<<<' -e '=======' -e '>>>>>>>' -- README.md
+git diff --check
+git add README.md docs/conflict-resolution.md
+git commit
+git push
+```
+
+검증 결과 README에서 충돌 마커가 발견되지 않았고, 팀원 5명의 문서 링크와 핵심 문서 링크가 모두 유지됐다.
+
+### 9. 결과
+
+- 관련 PR: [PR #24](https://github.com/gitflow-practice-team/github-workflow-practice/pull/24)
+- 충돌 해결 커밋: push 후 링크 추가
+- 해결 결과: 프로젝트 소개, 팀원별 학습 노트와 핵심 문서 링크를 하나의 README 구조로 통합
+
+### 10. 배운 점
+
+서로 다른 문장을 추가하더라도 동일한 기준 줄 바로 다음에 삽입하면 Git이 순서를 결정하지 못해 충돌할 수 있다. 충돌 해결은 마커를 삭제하는 작업에 그치지 않고, 양쪽 변경의 목적을 파악해 정보 손실 없이 최종 구조를 결정하는 과정이다.
+
+다음부터 공용 README를 수정할 때는 작업 전 최신 `main`을 확인하고, 담당 섹션과 삽입 위치를 팀원끼리 먼저 공유한다.
