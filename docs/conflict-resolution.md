@@ -296,3 +296,110 @@ git push
 서로 다른 문장을 추가하더라도 동일한 기준 줄 바로 다음에 삽입하면 Git이 순서를 결정하지 못해 충돌할 수 있다. 충돌 해결은 마커를 삭제하는 작업에 그치지 않고, 양쪽 변경의 목적을 파악해 정보 손실 없이 최종 구조를 결정하는 과정이다.
 
 다음부터 공용 README를 수정할 때는 작업 전 최신 `main`을 확인하고, 담당 섹션과 삽입 위치를 팀원끼리 먼저 공유한다.
+
+
+---
+
+## 충돌 기록 #3: CONTRIBUTING 섹션 10~15 통합
+
+### 1. 기본 정보
+
+- 발생 날짜: 2026-09-18
+- 충돌 파일: `docs/CONTRIBUTING.md`
+- 대상 PR: [PR #20](https://github.com/gitflow-practice-team/github-workflow-practice/pull/20)
+- PR 브랜치: `feature/juseong-contributing-prohibitions`
+- 대상 브랜치: `main`
+- 충돌 해결자: 정빈 (`@b0e2`)
+- 관련 작업자: 이주성 (`@YiJuseong`, PR #20 작성자)
+- 충돌 해결 커밋: [9e1d89b](https://github.com/gitflow-practice-team/github-workflow-practice/commit/9e1d89b3892029c31c8ae75d81de94654ba3574f)
+
+### 2. 충돌 전 커밋
+
+- 공통 기준 커밋: `7fe6cb036897541ddf5df1579b79097550ed8508`
+- PR #20 브랜치 커밋: `afe9eb25db62c887f9713585edb9ea42bcf40c04`
+- 병합한 최신 main: `277b14d3f5318d372a188393e2d69b9c20bd0c52`
+
+### 3. 상황
+
+PR #20 브랜치는 `docs/CONTRIBUTING.md`의 9번 섹션 다음에 금지 사항, 기본 협업 흐름과 관련 문서를 각각 13~15번으로 추가했다. 최신 `main`에는 같은 위치에 충돌 대응 흐름, 충돌 해결 주의사항과 Git 트러블슈팅 원칙이 10~12번으로 추가돼 있었다.
+
+두 브랜치가 같은 기준 줄 다음에 서로 다른 대규모 섹션을 삽입했기 때문에 Git이 최종 순서를 자동으로 결정하지 못했다.
+
+### 4. 재현 명령
+
+```bash
+git fetch origin
+git switch feature/juseong-contributing-prohibitions
+git merge origin/main
+```
+
+실행 결과:
+
+```text
+자동 병합: docs/CONTRIBUTING.md
+충돌 (내용): docs/CONTRIBUTING.md에 병합 충돌
+자동 병합이 실패했습니다. 충돌을 바로잡고 결과물을 커밋하십시오.
+```
+
+`git status --short`에서는 `docs/CONTRIBUTING.md`가 `UU` 상태로 표시됐다.
+
+### 5. 충돌 마커 구조
+
+```text
+ <<<<<<< HEAD
+## 13. 금지 사항
+...
+ =======
+## 10. 충돌 발생 시 대응 흐름
+...
+ >>>>>>> origin/main
+```
+
+- `HEAD`: PR #20에서 추가한 13~15번 섹션
+- `origin/main`: 먼저 병합된 10~12번 섹션
+
+### 6. 비자명 충돌로 판단한 이유
+
+한쪽만 선택하면 충돌 대응 지침 또는 협업 금지 사항 전체가 사라진다. 양쪽을 단순히 이어 붙일 때도 문서의 논리적 순서와 섹션 번호를 검토해야 하므로 변경 목적을 이해한 수동 해결이 필요했다.
+
+### 7. 해결 전략
+
+양쪽의 내용을 모두 보존하되 다음 순서로 재배치했다.
+
+1. 기존 1~9번 섹션 유지
+2. 최신 main의 10번 충돌 대응 흐름 유지
+3. 최신 main의 11번 충돌 해결 주의사항 유지
+4. 최신 main의 12번 Git 트러블슈팅 원칙 유지
+5. PR #20의 13번 금지 사항 유지
+6. PR #20의 14번 기본 협업 흐름 유지
+7. PR #20의 15번 관련 문서 유지
+
+결과적으로 문서 제목이 1번부터 15번까지 중복이나 누락 없이 이어지도록 정리했다.
+
+### 8. 검증
+
+다음 항목을 실제로 확인했다.
+
+```bash
+git ls-files -u
+grep -nE '^## ([0-9]+)\.' docs/CONTRIBUTING.md
+git status --short
+git show -s --format='%H %P %s' HEAD
+```
+
+- unmerged index entry가 남아 있지 않음
+- 섹션 번호가 1부터 15까지 순서대로 한 번씩 존재함
+- 문서의 충돌 마커 예시 3줄을 제외한 실제 병합 마커가 제거됨
+- 해결 커밋이 PR 브랜치와 최신 main을 부모로 하는 merge commit임
+- 정빈 (`b0e2 <beenjeong02@gmail.com>`)이 해결 커밋의 작성자와 커미터로 기록됨
+
+### 9. 결과
+
+- 해결 커밋: [9e1d89b](https://github.com/gitflow-practice-team/github-workflow-practice/commit/9e1d89b3892029c31c8ae75d81de94654ba3574f)
+- PR: [#20 CONTRIBUTING 금지 사항·협업 흐름·관련 문서 추가](https://github.com/gitflow-practice-team/github-workflow-practice/pull/20)
+- force push 없이 일반 merge와 일반 push로 해결
+- PR #20 원격 브랜치가 해결 커밋 `9e1d89b`를 가리키는 것을 확인
+
+### 10. 배운 점
+
+같은 파일에 서로 다른 섹션을 추가했더라도 동일한 위치를 기준으로 삽입하면 충돌할 수 있다. 이 경우 한쪽을 버리지 않고 문서 전체의 목차 구조와 번호를 기준으로 순서를 결정해야 한다. 공유된 PR 브랜치에서는 rebase나 force push 대신 최신 main을 merge해 기존 히스토리를 보존하는 방식이 안전하다.
