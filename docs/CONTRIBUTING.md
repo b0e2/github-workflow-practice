@@ -460,3 +460,69 @@ git stash pop
 실습 과정과 결과는 `docs/troubleshooting-log.md`에 기록합니다.
 
 ---
+
+## 13. 금지 사항
+
+다음 작업은 팀 합의 없이 수행하지 않습니다.
+
+* `main` 브랜치 직접 push
+* 공유 브랜치에서 강제 push
+* 공유된 커밋에 대한 임의의 history rewrite
+* 다른 팀원의 브랜치 삭제
+* 리뷰 없이 PR 병합
+* 충돌 내용을 확인하지 않고 한쪽 변경 사항 삭제
+* Issue 없이 추적하기 어려운 작업 진행
+* 의미 없는 커밋 메시지 사용
+
+특히 다음 명령은 공유 브랜치에서 사용하지 않습니다.
+
+```bash
+git push --force
+git reset --hard
+git rebase
+```
+
+`git rebase`는 공유 브랜치에서는 금지합니다. 다른 팀원의 히스토리와 충돌할 수 있기 때문입니다.
+개인 feature 브랜치에서 히스토리를 정리할 목적으로는, 팀 합의 후 사용할 수 있습니다.
+
+`git push --force`와 `git reset --hard`도 공유 브랜치에서는 사용하지 않으며, 필요한 경우 반드시 팀원과 먼저 협의합니다.
+
+---
+
+## 14. 기본 협업 흐름
+
+모든 기능 작업은 아래 흐름을 따르는 것을 원칙으로 합니다.
+
+```text
+Issue 생성
+    ↓
+feature 브랜치 생성
+    ↓
+작업
+    ↓
+Commit
+    ↓
+Push
+    ↓
+Pull Request 생성
+    ↓
+Code Review
+    ↓
+리뷰 반영
+    ↓
+Approve
+    ↓
+Merge
+    ↓
+Issue Close
+```
+
+---
+
+## 15. 관련 문서
+
+* 충돌 해결 기록: `docs/conflict-resolution.md`
+* Git 문제 해결 기록: `docs/troubleshooting-log.md`
+* 제출물 인덱스: `SUBMISSION.md`
+
+---
