@@ -166,8 +166,8 @@ git grep -n -e '<<<<<<<' -e '=======' -e '>>>>>>>'
 `CONTRIBUTING.md`의 협업 규칙을 1번부터 9번까지 논리적인 순서로 통합했다.
 
 - 관련 PR: [PR #9](https://github.com/gitflow-practice-team/github-workflow-practice/pull/9)
-- 충돌 해결 커밋: `<커밋 링크>`
-- 최종 병합 커밋: `<PR 병합 후 추가>`
+- 충돌 해결 커밋: [094b594](https://github.com/gitflow-practice-team/github-workflow-practice/commit/094b59436b94f01791f6541aa90a1521f3361bf1)
+- 최종 병합 커밋: [7fe6cb0](https://github.com/gitflow-practice-team/github-workflow-practice/commit/7fe6cb0)
 
 ### 10. 배운 점
 
@@ -288,7 +288,7 @@ git push
 ### 9. 결과
 
 - 관련 PR: [PR #24](https://github.com/gitflow-practice-team/github-workflow-practice/pull/24)
-- 충돌 해결 커밋: push 후 링크 추가
+- 충돌 해결 커밋: [2484c89](https://github.com/gitflow-practice-team/github-workflow-practice/commit/2484c897a1e696f29f38cc33481c53569c77937c)
 - 해결 결과: 프로젝트 소개, 팀원별 학습 노트와 핵심 문서 링크를 하나의 README 구조로 통합
 
 ### 10. 배운 점
